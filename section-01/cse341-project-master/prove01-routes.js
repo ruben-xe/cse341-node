@@ -8,7 +8,7 @@ const requestHandler = (req, res) => {
     if (url === '/') {
         res.write('<html>')
         res.write('<head><title>Create a User</title></head>')
-        res.write('<body><h1>Sing up</h1><form action="/create-user" method="POST"><input type="text" name="userName"><button type="submit">Sign up</button></form></body>')
+        res.write('<body><h1>Welcome! Sing up for enjoy more content</h1><form action="/create-user" method="POST"><input type="text" name="userName"><button type="submit">Sign up</button></form></body>')
         res.write('</html>')
         return res.end();
     }
@@ -35,7 +35,7 @@ const requestHandler = (req, res) => {
         fs.readFile('listOfUsers.html', function(err, data) {
             res.writeHead(200, {'Content-Type': 'text/html'});
             res.write(data);
-            res.write('</ol></body></html>')
+            res.write('</ul></body></html>')
             return res.end();
         })
     }
