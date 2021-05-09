@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+<!-- <div class="jumbotron text-center">
+  <div class="container">
+    <h1><%= title %></h1>
+    <p>Prove assignment 02</p>
+  </div>
+</div> -->
+<div class="container">
+  <div>
+    <h2>Add new book</h2>
+    <form action="/prove02/addBook" method="post">
+      <label for="title">Book's title</label><br>
+      <input type="text" name="title" id="title"><br>
+      <label for="summary">Summary</label><br>
+      <textarea id="summary" name="summary" rows="4" cols="20"></textarea><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="container">
+    <% for (books of books) {%>
+      <div class="container">
+        <h4>
+          <%= books.title %>
+        </h4>
+        <p>
+          <%= books.summary %>
+        </p>
+        
+      </div>
+      <%}%>
+  </div>
+</div>
+
+
+</body>
+</html>
