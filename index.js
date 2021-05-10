@@ -22,17 +22,20 @@ const app = express();
 // Route setup. You can implement more in the future!
 const routes = require('./routes')
 
-app.use(express.static(path.join(__dirname, 'public')))
-   .set('views', path.join(__dirname, 'views'))
-   .set('view engine', 'ejs')
-   // For view engine as Pug
-   //.set('view engine', 'pug') // For view engine as PUG. 
-   // For view engine as hbs (Handlebars)
-   //.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) // For handlebars
-   //.set('view engine', 'hbs')
-   .use(bodyParser({extended: false})) // For parsing the body of a POST
-   .use('/', routes)
-   .listen(PORT, () => {
-     console.log(`Listening on ${ PORT }`);
-     console.log(`http://127.0.0.1:${ PORT }`);
-   });
+app
+  .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static(path.join(__dirname, 'prove/proveRoutes/prove03/public')))
+  // Setting the second views folder for activity prove-03
+  .set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'routes/proveRoutes/prove03/views')])
+  .set('view engine', 'ejs')
+  // For view engine as Pug
+  //.set('view engine', 'pug') // For view engine as PUG. 
+  // For view engine as hbs (Handlebars)
+  //.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) // For handlebars
+  //.set('view engine', 'hbs')
+  .use(bodyParser({ extended: false })) // For parsing the body of a POST
+  .use('/', routes)
+  .listen(PORT, () => {
+    console.log(`Listening on ${PORT}`);
+    console.log(`http://127.0.0.1:${PORT}`);
+  });

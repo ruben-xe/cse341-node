@@ -6,10 +6,10 @@ const router = express.Router();
 router.get('/',(req, res, next) => {
     Book.fetchAll( books => {
 
-        res.render('pages/prove02', { 
+        res.render('pages/proveActivities/prove02', { 
             title: 'Team Activity 02', 
-            books:books,
-            path: '/prove02', // For pug, EJS 
+            books: books,
+            path: '/p02', // For pug, EJS 
         });
     })
 });
